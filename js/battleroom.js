@@ -144,6 +144,17 @@ $('body').on('click', '.specbattle', function(e) {
 	utils.sendbattlestatus();
 });
 
+$('body').on('click', '.autolaunchbattle', function(e) {
+	
+	if ($('#battleroom .autolaunchbattle').prop('checked') == true) {		
+		store.set('user.autolaunchbattle', 1);
+	}else{		
+		store.set('user.autolaunchbattle', 0);
+	}	
+	
+});
+
+
 $('body').on('click', '.gospec, .goplay', function(e) {
 	
 	if ($('#battleroom .specbattle').prop('checked') == true) {

@@ -4,6 +4,11 @@ const log = require('electron-log');
 const Store = require('electron-store');
 const store = new Store();
 
+const getmac = require('getmac');
+var macaddress = getmac.default();
+//console.warn( macaddress );
+var CRC32 = require('crc-32');   
+
 import Protocol from './protocol.js';
 let protocol = new Protocol();
 
@@ -62,8 +67,11 @@ export function login() {
 		.createHash('md5')
 		.update(password)
 		.digest('base64');
-
-	var loginString = 'LOGIN ' + username + ' ' + passwordHash + ' 0 * Zlobby ' + appVersion + '	0	l \n';
+		
+	
+	var userID = CRC32.str(macaddress);
+	
+	var loginString = 'LOGIN ' + username + ' ' + passwordHash + ' 0 * Zlobby ' + appVersion + '	'+userID+'	l \n';
 	socketClient.write(loginString);
 
 	// save my username
@@ -92,23 +100,20 @@ export function login() {
 		console.log('Socket End: Disconnected from server');
 		console.log(data.toString());
 		log.info('Socket End: Disconnected from server');
-		log.info(data.toString());
-		resetUI();
-		//socket_connect();
+		log.info(data.toString());		
+		win.reload();		
 	});
 
 	socketClient.on('error', data => {
 		
-		var err = data.toString();
-		
+		var err = data.toString();		
 		log.warn('Socket Error');
 		log.warn(err);
+		win.reload();
 				
-		if (err == 'Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed' || err.indexOf('Error: getaddrinfo ENOTFOUND') !== -1) {
-			
-			win.reload();
-			
-		}
+		// if (err == 'Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed' || err.indexOf('Error: getaddrinfo ENOTFOUND') !== -1) {			
+		// 	win.reload();			
+		// }
 	});
 }
 
