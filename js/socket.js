@@ -28,7 +28,7 @@ var appVersion = app.getVersion();
 
 var error_count = 0;
 
-import { trackEvent } from './init.js';
+//import { trackEvent } from './init.js';
 
 function socket_connect() {
 	
@@ -81,8 +81,8 @@ export function login() {
 
 	socketInterval = setInterval(function() {
 		socketClient.write('PING\n');
-		trackEvent('Lobby', appVersion);
-		trackEvent(username, appVersion);
+		//trackEvent('Lobby', appVersion);
+		//trackEvent(username, appVersion);
 	}, 15000);
 
 	socketClient.on('data', data => {

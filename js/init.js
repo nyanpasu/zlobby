@@ -17,7 +17,7 @@ var appVersion = remote.app.getVersion();
 var appPath = remote.app.getAppPath();
 var appData = remote.app.getPath('userData');
 var Jimp = require('jimp');
-const ua = require('universal-analytics');
+//const ua = require('universal-analytics');
 const log = require('electron-log');
 // clear log at start
 log.transports.file.clear();
@@ -593,26 +593,25 @@ $('body').on('click', '.deletechannelchats', function(e) {
 });
 
 // generate uuid
-var uuid = require('uuid-random');
-var useruuid = store.get('user.uuid');
+//var uuid = require('uuid-random');
+//var useruuid = store.get('user.uuid');
+//
+//if (!useruuid) {
+//	useruuid = uuid();
+//	store.set('user.uuid', useruuid);
+//}
+//const usr = ua('UA-176437325-1', useruuid);
 
-if (!useruuid) {
-	useruuid = uuid();
-	store.set('user.uuid', useruuid);
-}
-
-const usr = ua('UA-176437325-1', useruuid);
-
-export function trackEvent(category, action, label, value) {
-	usr
-		.event({
-			ec: category,
-			ea: action,
-			el: label,
-			ev: value,
-		})
-		.send();
-}
-trackEvent('App', 'launched');
+//export function trackEvent(category, action, label, value) {
+//	usr
+//		.event({
+//			ec: category,
+//			ea: action,
+//			el: label,
+//			ev: value,
+//		})
+//		.send();
+//}
+//trackEvent('App', 'launched');
 
 export { springdir, mapsdir, minimapsdir, modsdir, chatlogsdir, infologfile, scriptfile, remotemodsurl, remotemapsurl, remotemapsurl2 };

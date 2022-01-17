@@ -13,7 +13,7 @@ const Store = require('electron-store');
 const store = new Store();
 const log = require('electron-log');
 
-import { trackEvent } from './init.js';
+//import { trackEvent } from './init.js';
 
 export default class User {
 	constructor() {}

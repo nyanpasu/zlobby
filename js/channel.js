@@ -1,6 +1,6 @@
 import {socketClient} from './socket.js'
 
-import {trackEvent} from './init.js';
+//import {trackEvent} from './init.js';
 
 export default class Channel {
     
