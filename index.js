@@ -1,3 +1,4 @@
+require('@electron/remote/main').initialize()
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 
 const { autoUpdater } = require('electron-updater');
@@ -26,6 +27,8 @@ function createWindow() {
 			worldSafeExecuteJavaScript: true,			
 		},
 	});
+
+  require("@electron/remote/main").enable(win.webContents)
 
 	// and load the index.html of the app.
 	win.loadFile(__dirname + '/index.html');
