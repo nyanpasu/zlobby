@@ -1,14 +1,17 @@
+# Misc stuff
+*/.DS_Store
+.DS_Store
 .env
-node_modules/
+
+js/notarize.js
 dist/
 minimaps/
-.DS_Store
-js/notarize.js
+node_modules/
+
+# Why is this even ignored? TODO
 electron-builder.yml
-certificate.p12
-yarn.lock
-yarn-error.log
-*/.DS_Store
+
 .nova/Configuration.json
-package.json
-package-lock.json
+certificate.p12
+
+out/
