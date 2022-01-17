@@ -15,7 +15,7 @@ var Filter = require('bad-words'),
 const Store = require('electron-store');
 const store = new Store();
 
-var app = require('electron').remote.app;
+var app = require('@electron/remote').app;
 
 var bmessages = [];
 var bmcount = 1;

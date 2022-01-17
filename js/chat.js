@@ -9,7 +9,7 @@ let utils = new Utils();
 
 import User from './user.js';
 
-var app = require('electron').remote.app;
+var app = require('@electron/remote').app;
 
 $('body').on('keypress', '.chat', function(e) {
 	if (e.which == 13) {

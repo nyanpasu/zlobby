@@ -12,12 +12,11 @@ const homedir = os.homedir();
 const arch = os.arch();
 const platform = os.platform();
 const { ipcRenderer } = require('electron');
-const remote = require('electron').remote;
+const remote = require('@electron/remote');
 var appVersion = remote.app.getVersion();
 var appPath = remote.app.getAppPath();
 var appData = remote.app.getPath('userData');
 var Jimp = require('jimp');
-const { dialog } = require('electron').remote;
 const ua = require('universal-analytics');
 const log = require('electron-log');
 // clear log at start

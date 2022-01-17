@@ -4,7 +4,7 @@ import { springdir, mapsdir, minimapsdir, modsdir, chatlogsdir, infologfile } fr
 
 var fs = require('fs');
 const log = require('electron-log');
-var win = require('electron').remote.getCurrentWindow();
+var win = require('@electron/remote').getCurrentWindow();
 
 var Filter = require('bad-words'),
 	filter = new Filter();

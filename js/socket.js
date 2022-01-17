@@ -12,7 +12,7 @@ var CRC32 = require('crc-32');
 import Protocol from './protocol.js';
 let protocol = new Protocol();
 
-var win = require('electron').remote.getCurrentWindow();
+var win = require('@electron/remote').getCurrentWindow();
 
 var Filter = require('bad-words'),
 	filter = new Filter();
@@ -23,7 +23,7 @@ export var socketClient;
 //var connectInterval;
 var socketInterval;
 
-var app = require('electron').remote.app;
+var app = require('@electron/remote').app;
 var appVersion = app.getVersion();
 
 var error_count = 0;
