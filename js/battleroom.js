@@ -483,7 +483,7 @@ function promoteDiscord(){
 	var remainder = nplayers % 2;
 	
 	var battlename = $('#battleroom #battle-right-info .title').text();
-	var footermessage = 'with ' + myusername + ' on ' + $('#battleroom .mapname').text();
+	var footermessage = 'on ' + $('#battleroom .mapname').text();
 
 	if (remainder == 0) {
 		var title = '2 player needed for ' + quotient + 'v' + quotient + ' in ' + battlename;
